@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  currentBuildConfiguration: 'Release'
+  buildConfiguration: 'Release'
 
 steps:
 - script: dotnet build --configuration $(currentBuildConfiguration)
