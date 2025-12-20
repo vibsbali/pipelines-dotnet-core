@@ -1,0 +1,34 @@
+# Generic pipeline
+# https://aka.ms/yaml
+
+trigger:
+- azure-pipelines-dummy
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: BuildJob
+    displayName: 'Build Job'
+    steps:
+    - script: |
+        echo "Restoring project dependencies..."
+      displayName: 'Restore dependencies'
+    - script: |
+        echo "Building..."
+      displayName: 'Building project'
+
+- stage: Test
+  displayName: 'Test Stage'
+  dependsOn: Build
+  isSkippable: false
+  jobs:
+  - job: TestJob
+    displayName: 'Test Job'
+    steps:
+    - script: |
+        echo "Running unit tests..."
+      displayName: 'Run unit tests'
