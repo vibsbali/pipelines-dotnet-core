@@ -86,7 +86,7 @@ stages:
 # Manual steps
 - stage: DeployToAlternateProduction
   displayName: 'Deploy to Alternate Production'
-  condition: succeeded()
+  condition: failed()
   trigger: manual
   jobs:
   - job: DeployAlternateProductionJob
