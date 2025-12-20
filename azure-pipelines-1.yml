@@ -62,7 +62,7 @@ stages:
   displayName: 'Deploy to Production'
   dependsOn: DeployToStaging
   lockBehavior: sequential
-  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/release'))
+  condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines-dummy', 'refs/heads/master', 'refs/heads/release'))
   jobs:
   - job: DeployProductionJob
     displayName: 'Deploy to Production Job'
